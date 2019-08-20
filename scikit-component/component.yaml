@@ -9,7 +9,7 @@ outputs:
 - {name: pathoutputfile, type: String, description: 'Name to write'}
 implementation:
   container:
-    image: gcr.io/erwinh-mldemo/kfp/scikit-train@sha256:4ab12ad1cdae1f7bc060d66b1317e3c2ac4e2750f60dc2db23192ce8b07baf96
+    image: gcr.io/erwinh-mldemo/kfp/scikit-train@latest
     command: [python3, /pipelines/component/src/task.py]
     args: [ 
       --pathdata, {inputValue: pathdata},

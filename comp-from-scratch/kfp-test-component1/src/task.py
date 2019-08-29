@@ -18,7 +18,6 @@ def get_args():
                         help="Path to where you write file that has the URI pathoutput",
                         required=True,
                         type=str,
-                        default=1
                         )
 
 
@@ -26,7 +25,12 @@ def get_args():
                         help="Your name as a string",
                         required=True,
                         type=str,
-                        default=1
+                        )
+
+    parser.add_argument('--gcsbucket', 
+                        help="Your bucket path as a string",
+                        required=True,
+                        type=str,
                         )
 
     arguments = parser.parse_args()
@@ -40,8 +44,12 @@ def main():
     print(args.output_path_file)
     print(args.name)
 
+    path = os.path.join(args.gcsbucket, 'name.txt')
+
     Path(args.output_path_file).parent.mkdir(parents=True, exist_ok=True)
-    Path(args.output_path_file).write_text(args.name)
+    Path(args.output_path_file).write_text(path)
+
+    utils.write_to_file(args.name, path)
 
 if __name__ == '__main__':
     main()

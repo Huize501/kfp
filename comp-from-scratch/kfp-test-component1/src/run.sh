@@ -1,1 +1,1 @@
-python task.py --name erwin --output-path-file model
+python task.py --name erwin --output-path-file model --gcsbucket gs://erwinh-mldemo/scikit/model/

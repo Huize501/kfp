@@ -1,16 +1,16 @@
 name: Component 1
-description: Performs some dummy work.
+description: Writes name to txt file on GCS
 inputs:
 - {name: name, type: String, description: 'Name to write'}
-- {name: output_path, type: String, description: 'output file'}
+- {name: gcsbucket, type: GcsPath, description: 'output file'}
 outputs:
 - {name: output_path, type: String, description: 'Name to write'}
 implementation:
   container:
-    image: gcr.io/erwinh-mldemo/kfp-test/component@sha256:62c69e962466bf7f78922f1417993e47c90d57f6880adc1ffc3b58a0c06e4577
-    command: [
-      python3, /app/src/task.py,
+    image: gcr.io/erwinh-mldemo/kfp-test/component@latest
+    command: [python3, /app/src/task.py]
+    args: [
       --name, {inputValue: name},
-      --output-path-file, {inputValue: output_path},
+      --gcsbucket, {inputValue: output_path},
       --output-path-file, {outputPath: output_path},
     ]

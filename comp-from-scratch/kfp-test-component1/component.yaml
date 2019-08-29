@@ -11,6 +11,6 @@ implementation:
     command: [python3, /app/src/task.py]
     args: [
       --name, {inputValue: name},
-      --gcsbucket, {inputValue: output_path},
+      --gcsbucket, {inputValue: gcsbucket},
       --output-path-file, {outputPath: output_path},
     ]

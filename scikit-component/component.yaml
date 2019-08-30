@@ -1,5 +1,5 @@
 name: Scikit trainer
-description: Trains a scikit learn model
+description: Trains a scikit learn model on kubeflow
 inputs:
 - {name: pathdata, type: GcsPath, description: 'Path to data on gcs'}
 - {name: storage, type: String, description: 'Where your data is stored: BQ or GCS'}
@@ -9,7 +9,7 @@ outputs:
 - {name: pathoutputfile, type: String, description: 'Name to write'}
 implementation:
   container:
-    image: gcr.io/erwinh-mldemo/kfp/scikit-train@sha256:1ae2889ed0506f16b6ae273db8979bf3781bd7797feca6f51ffc9b1842285b2d
+    image: gcr.io/erwinh-mldemo/kfp/scikit-train@sha256:682623f3a05e5d22bc4bf1e6d40674878d8db5cf1e942e2cdd82c777d9b887f6
     command: [python3, /pipelines/component/src/trainer/task.py]
     args: [ 
       --pathdata, {inputValue: pathdata},

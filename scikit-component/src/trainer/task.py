@@ -67,7 +67,7 @@ def main():
 
     full_table_path = args.bqtable
 
-    if storage in ['BQ', 'bq' 'bigquery', 'BigQuery']:
+    if storage in ['BQ', 'bq' 'bigquery', 'BigQuery', 'bigQuery']:
       dataset = utils.read_df_from_bigquery(full_table_path)
     else:
       dataset = utils.get_data_from_gcs(path_data)

@@ -1,10 +1,9 @@
 import logging
 import os
 import sys
-
+from tensorflow import gfile
+import tensorflow as tf
 import argparse
-import time
-import os
 
 
 def get_args():
@@ -13,8 +12,8 @@ def get_args():
         description="ArgeParser"
         )
 
-    parser.add_argument('--name', 
-                        help="GCS Bucket to output model.joblib",
+    parser.add_argument('--gcspath', 
+                        help="GCS Bucket where text file with name is stored",
                         required=True,
                         type=str,
                         default=1
@@ -28,9 +27,10 @@ def main():
 
     args = get_args()
 
-    name = args.name
+    with tf.io.gfile.GFile(args.gcspath, "rb") as file:
+      text = file.read()
 
-    print(name)
+    print(text)
 
 if __name__ == '__main__':
     main()

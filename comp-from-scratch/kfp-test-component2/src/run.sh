@@ -1,0 +1,1 @@
+python task.py --gcspath gs://erwinh-mldemo/scikit/model/name.txt

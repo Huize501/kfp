@@ -1,12 +1,10 @@
-name: KFP Test
-description: Performs some dummy work.
+name: KFP Python Component 2
+description: Component2 that reads txt from gcs and prints result
 
 inputs:
-- {name: name, type: String, description: 'GCS path to Input 1'}
+- {name: gcsbucket, type: GcsPath, description: 'GCS path where text file is stored'}
 implementation:
   container:
-    image: gcr.io/erwinh-mldemo/kfp-test/component2@sha256:e4a3b6004dbfb6128d8c0a0e1ca48f52b0f3913fb56b65d9a4c0e36a004fa9ed
-    command: [
-      python3, /app/src/task.py,
-      --name, {inputValue: name},
-    ]
+    image: gcr.io/erwinh-mldemo/kfp-test/component2@sha256:a975b15a2c92f9b1ec81ae5b52debefddd33736494edaf29ff052d7af4f112f9
+    command: [python3, /app/src/task.py]
+    args: [--gcsbucket, {inputValue: gcsbucket}]

@@ -2,7 +2,7 @@ name: KFP Python Component 2
 description: Component2 that reads txt from gcs and prints result
 
 inputs:
-- {name: gcsbucket, type: GcsPath, description: 'GCS path where text file is stored'}
+- {name: gcsbucket, type: String, description: 'GCS path where text file is stored'}
 implementation:
   container:
     image: gcr.io/erwinh-mldemo/kfp-test/component2@sha256:a975b15a2c92f9b1ec81ae5b52debefddd33736494edaf29ff052d7af4f112f9

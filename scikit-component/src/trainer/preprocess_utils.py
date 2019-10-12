@@ -1,15 +1,36 @@
+# Copyright 2018 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 import functools
+import metadata
+import utils
 
 import numpy as np
 from sklearn import compose
 from sklearn import impute
 from sklearn import pipeline
 from sklearn import preprocessing
-import metadata
-
-import utils
 
 def get_preprocess_pipeline(feature_columns, categorical_names, numerical_names):
+    """
+    Creates the preprocessor used to process the data for training. 
+    This will be combined with the estimator 
+    
+    Returns
+    -------
+       Preprocessor
+    """
 
     numeric_transformer = pipeline.Pipeline([
         ('imputer', impute.SimpleImputer(strategy='median')),
@@ -28,9 +49,6 @@ def get_preprocess_pipeline(feature_columns, categorical_names, numerical_names)
     boolean_mask = functools.partial(utils.boolean_mask, feature_columns)
     numerical_boolean = boolean_mask(numerical_names)
     categorical_boolean = boolean_mask(categorical_names)
-
-    print(numerical_boolean)
-    print(categorical_boolean)
 
     transform_list = []
 

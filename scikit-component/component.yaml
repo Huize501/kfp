@@ -1,12 +1,12 @@
-name: Scikit trainer
-description: Trains a scikit learn model on kubeflow
+name: Scikit trainer component
+description: This component trains a scikit-learn model 
 inputs:
 - {name: pathdata, type: GcsPath, description: 'Path to data on gcs'}
 - {name: storage, type: String, description: 'Where your data is stored: BQ or GCS'}
 - {name: pathoutput, type: GcsPath, description: 'Path to bigquery table'}
 - {name: bqtable, type: String, description: 'GCS Bucket to output the trained model as model.joblib'}
 outputs:
-- {name: pathoutputfile, type: String, description: 'Name to write'}
+- {name: pathoutputfile, type: String, description: 'Path to where to write local file'}
 implementation:
   container:
     image: gcr.io/erwinh-mldemo/kfp/scikit-train@sha256:682623f3a05e5d22bc4bf1e6d40674878d8db5cf1e942e2cdd82c777d9b887f6

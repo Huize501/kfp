@@ -10,7 +10,7 @@ outputs:
 implementation:
   container:
     image: gcr.io/erwinh-mldemo/kfp/scikit-train@sha256:4c473793a3f254c956451331ee3ae32b5eba5de9a9f4a161a62955b3b81fd4bd
-    command: [python3 -m /pipelines/component/src/task.py]
+    command: [python3 /pipelines/component/src/task.py]
     args: [ 
       --pathdata, {inputValue: pathdata},
       --storage, {inputValue: storage},

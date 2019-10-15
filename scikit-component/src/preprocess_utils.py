@@ -13,8 +13,9 @@
 # limitations under the License.
 
 import functools
-import metadata
-import utils
+
+import src.metadata as metadata
+import src.utils as utils
 
 import numpy as np
 from sklearn import compose

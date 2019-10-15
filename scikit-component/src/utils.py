@@ -14,7 +14,7 @@
 
 import os
 
-import metadata
+import src.metadata as metadata
 
 import pandas as pd
 from sklearn import model_selection
@@ -30,21 +30,21 @@ def get_data_from_gcs(path_data):
     -------
        Pandas dataframe
     """
-    with tf.io.gfile.GFile(path_data, 'r') as my_file:
-        dataset=pd.read_csv(my_file)
-        print(dataset)
+    # make sure to use Pandas >=  0.24
+    dataset=pd.read_csv(path_data) 
+    print(dataset.head(2))
     return dataset
 
 #TODO REMOVE
-#def _feature_label_split(data_df, label_column):
-#  """
-#    Splits Pandas df in
-#
-#    Returns
-#    -------
-#       Pandas dataframe
-#    """
-#  return data_df.loc[:, data_df.columns != label_column], data_df[label_column]
+def _feature_label_split(data_df, label_column):
+    """
+    Splits Pandas df in
+
+    Returns
+    -------
+       Pandas dataframe
+    """
+    return data_df.loc[:, data_df.columns != label_column], data_df[label_column]
 
 def boolean_mask(columns, target_columns):
     """

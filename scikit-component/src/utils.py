@@ -14,7 +14,7 @@
 
 import os
 
-import src.metadata as metadata
+import metadata as metadata
 
 import pandas as pd
 from sklearn import model_selection

@@ -14,8 +14,8 @@
 
 import functools
 
-import src.metadata as metadata
-import src.utils as utils
+import metadata as metadata
+import utils as utils
 
 import numpy as np
 from sklearn import compose

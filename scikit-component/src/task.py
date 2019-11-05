@@ -16,9 +16,9 @@ import argparse
 import time
 import os
 
-import src.model as model
-import src.utils as utils
-import src.metadata as metadata
+import model as model
+import utils as utils
+import metadata as metadata
 
 from sklearn import model_selection
 from pathlib import Path

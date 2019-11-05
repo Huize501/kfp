@@ -14,9 +14,9 @@
 
 import functools
 
-import src.utils as utils
-import src.preprocess_utils as preprocess_utils
-import src.metadata as metadata
+import utils as utils
+import preprocess_utils as preprocess_utils
+import metadata as metadata
 
 import numpy as np
 from sklearn import compose

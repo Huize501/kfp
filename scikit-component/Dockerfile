@@ -4,3 +4,4 @@ FROM tensorflow/tensorflow:$BASE_IMAGE_TAG
 COPY requirements.txt /tmp
 RUN pip install -r /tmp/requirements.txt
 COPY ./src /pipelines/component/src
+WORKDIR /pipelines/component/src

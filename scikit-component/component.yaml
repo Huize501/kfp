@@ -9,8 +9,8 @@ outputs:
 - {name: pathoutputfile, type: String, description: 'Path to where to write local file'}
 implementation:
   container:
-    image: gcr.io/erwinh-mldemo/kfp/scikit-train@sha256:8670c6cda566e21988f64249445924e7b6e94061012b95a7d1888cca90a244a1
-    command: [python3, /pipelines/component/src/train.py]
+    image: gcr.io/erwinh-mldemo/kfp/scikit-train@sha256:2fe5619d1bacb2f177b42d90ff60b6b33130551a71927f1078cb522f7f1231e4
+    command: [python3, /pipelines/component/src/task.py]
     args: [ 
       --pathdata, {inputValue: pathdata},
       --storage, {inputValue: storage},

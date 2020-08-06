@@ -114,7 +114,7 @@ def main():
     utils.dump_object(pipeline, model_output_path)
     utils.dump_object(scores, metric_output_path)
 
-    joblib_output_path = os.path.join(output_bucket)
+    joblib_output_path = os.path.join(output_bucket, 'model/')
 
     # Write GCS path to local file 
     # This GCS path can be passed to the next component

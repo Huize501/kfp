@@ -1,3 +1,4 @@
 pyspark
 google-cloud-dataproc
 google-cloud-storage
+pandas

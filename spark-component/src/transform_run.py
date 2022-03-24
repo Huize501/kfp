@@ -25,7 +25,7 @@
 # to a service account with the right permissions to read from BigQuery
 # and write to GCS. If left blank, it assumes the GOOGLE_APPLICATION_CREDENTIALS
 # environment variable is set with the right permissions. Note that a default dataproc cluster
-# uses the compute (<project>-compute@developer...) service account, which can't read from BigQuery.
+# uses the compute (<project>-compute@developer...) service account, which can't read from BigQuery
 
 """ set environment variables
 export PROJECT=<project_name_output_bucket>

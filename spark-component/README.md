@@ -63,7 +63,7 @@ gcloud dataproc clusters create $CLUSTER \
 The default service account for a dataproc cluster is ` [project-number]-compute@developer.gserviceaccount.com` We need to assign the BigQuery User, 
 and Viewer role to this service account in order it to use the BigQuery storage API.
 
-### Set the right credetials
+### Set the right credetials.
 
 ```bash
 gcloud projects add-iam-policy-binding $PROJECT \

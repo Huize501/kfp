@@ -15,7 +15,7 @@ def get_args():
         )
 
     parser.add_argument('--output-path-file', 
-                        help="Path to where you write file that has the URI pathoutput",
+                        help="Path to where you write file that has the URI pathoutput.",
                         required=True,
                         type=str,
                         )
